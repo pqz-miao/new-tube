@@ -53,14 +53,17 @@ export const PersonalSection = () => {
                                 tooltip={item.title}
                                 asChild
                                 isActive={false}
-                                onClick={(e) => {
-                                    if (!isSignedIn && item.auth) {
-                                        e.preventDefault();
-                                        clerk.openSignIn();
-                                    }
-                                }}
                             >
-                                <Link href={item.url} className="flex items-center gap-4">
+                                <Link 
+                                    href={item.url} 
+                                    className="flex items-center gap-4"
+                                    onClick={(e) => {
+                                        if (!isSignedIn && item.auth) {
+                                            e.preventDefault();
+                                            clerk.openSignIn();
+                                        }
+                                    }}
+                                >
                                     <item.icon />
                                     <span className="text-sm">{item.title}</span>
                                 </Link>
